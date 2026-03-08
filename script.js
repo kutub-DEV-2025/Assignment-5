@@ -82,9 +82,6 @@ const all = issues.length
 const open = issues.filter(i => i.status === "open").length
 const closed = issues.filter(i => i.status === "closed").length
 
-document.getElementById("allCount").innerText = all
-document.getElementById("openCount").innerText = open
-document.getElementById("closedCount").innerText = closed
 
 }
 function displayIssues(issues){
