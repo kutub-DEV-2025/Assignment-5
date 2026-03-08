@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GitHub Issues Tracker</title>
+
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+<style>
+    * {font-family: "Geist", sans-serif;
+    }
+</style>
+
+</head>
+
+<body class="flex items-center justify-center h-screen bg-gray-100">
+
+<div class="bg-white p-8 rounded-xl shadow-lg w-96 text-center">
+    
+<div class="flex justify-center mb-3">
+<img src="./assets/github-logo.png" class="w-12 h-12">
+</div>
+
+<h1 class="text-2xl font-bold mb-2">GitHub Issues Tracker</h1>
+<p class="text-gray-500 mb-6">Sign in to manage your issues</p>
+
+<h3 class="text-left text-sm font-semibold">Username</h3>
+<input id="username"
+class="input input-bordered w-full mb-2 rounded-xl"
+placeholder="Enter Username">
+
+<p class="text-left text-primary text-sm">Default: admin</p>
+
+<h3 class="text-left text-sm font-semibold mt-4">Password</h3>
+<input id="password" type="password"
+class="input input-bordered w-full mb-2 rounded-xl"
+placeholder="Password">
+
+<p class="text-left text-primary text-sm">Default: admin123</p>
+
+<button onclick="login()"
+class="btn btn-primary w-full rounded-xl mt-4">
+Sign In
+</button>
+
+<div class="flex items-center gap-2 my-4">
+<hr class="flex-1">
+<span class="text-gray-400 text-sm">OR</span>
+<hr class="flex-1">
+</div>
+
+<p class="text-sm text-gray-500">Demo Credentials:</p>
+
+<div class="bg-[#F8FAFC] rounded-xl mt-3 p-2 text-sm">
+Username: <span class="text-gray-500">admin</span> <br>
+Password: <span class="text-gray-500">admin123</span>
+</div>
+
+</div>
+
+<script src="./script.js"></script>
+</body>
+</html>
