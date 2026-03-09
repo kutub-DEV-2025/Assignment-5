@@ -251,9 +251,6 @@ if(issue.labels && issue.labels.length > 0){
 }
 
 
-
-
-
 async function openModal(id){
 
 const res = await fetch(
@@ -262,20 +259,27 @@ const res = await fetch(
 
 const data = await res.json()
 
-const issue = data.data
 
-document.getElementById("modalTitle").innerText = issue.title
-document.getElementById("modalDesc").innerText = issue.description
-document.getElementById("modalAuthor").innerText = issue.author
-document.getElementById("modalCategory").innerText = issue.category
-document.getElementById("modalPriority").innerText = issue.priority
-document.getElementById("modalDate").innerText = issue.createdAt
+const issue = data.data
+document.getElementById("modalTitle").innerText = issue.title || "No title"
+
+document.getElementById("modalDesc").innerText = issue.description || "No description"
+
+document.getElementById("modalAuthor").innerText = issue.author || issue.assignee || "Unknown"
+
+document.getElementById("modalCategory").innerText = issue.category || "General"
+
+document.getElementById("modalPriority").innerText = issue.priority || "Normal"
+
+const date = new Date(issue.createdAt)
+
+document.getElementById("modalDate").innerText =
+date.toLocaleDateString()
+
 
 document.getElementById("issueModal").showModal()
 
 }
-
-
 
 
 async function searchIssue(){
