@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Issues Dashboard</title>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Issues Dashboard</title>
 
-<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser"></script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 
-<style>
-*{
-font-family: "Geist", sans-serif;
-}
-</style>
+    <style>
+    *{
+    font-family: "Geist", sans-serif;
+    }
+    </style>
 
 </head>
 
@@ -44,10 +44,10 @@ font-family: "Geist", sans-serif;
 
     <div class="p-10">
         <div class="tabs tabs-boxed mb-6 shadow bg-white rounded-md space-x-5 py-4">
-            <button onclick="changeTab(this,'all')" class="tab tab-active">All </button>
-            <button onclick="changeTab(this,'open')" class="tab">Open</button>
+            <button onclick="changeTab(this,'all')" class="btn tab tab-active">All </button>
+            <button onclick="changeTab(this,'open')" class="btn tab">Open</button>
 
-            <button onclick="changeTab(this,'closed')" class="tab">Closed</button>
+            <button onclick="changeTab(this,'closed')" class="btn tab">Closed</button>
         </div>
         <div class="bg-white p-6 rounded-xl shadow mb-8 flex justify-between items-center">
             <div class="flex items-center gap-4">
@@ -85,37 +85,21 @@ font-family: "Geist", sans-serif;
 
 
 <section>
-
-<dialog id="issueModal" class="modal">
-
-<div class="modal-box">
-
-<h3 id="modalTitle" class="font-bold text-lg"></h3>
-
-<p id="modalDesc"></p>
-
-<p id="modalAuthor"></p>
-
-<p id="modalCategory"></p>
-
-<p id="modalPriority"></p>
-
-<p id="modalDate"></p>
-
-<div class="modal-action">
-
-<form method="dialog">
-
-<button class="btn">Close</button>
-
-</form>
-
-</div>
-
-</div>
-
-</dialog>
-
+    <dialog id="issueModal" class="modal">
+        <div class="modal-box">
+            <h3 id="modalTitle" class="font-bold text-lg"></h3>
+            <p id="modalDesc"></p>
+            <p id="modalAuthor"></p>
+            <p id="modalCategory"></p>
+            <p id="modalPriority"></p>
+            <p id="modalDate"></p>
+            <div class="modal-action">
+                <form method="dialog">
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
 </section>
 
 

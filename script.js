@@ -1,19 +1,17 @@
-// ==============================
-// LOGIN FUNCTION
-// ==============================
+
 
 function login(){
 
 const username = document.getElementById("username").value
 const password = document.getElementById("password").value
 
-// simple login check
+
 if(username === "admin" && password === "admin123"){
 
-// login save করা localStorage এ
+
 localStorage.setItem("login",true)
 
-// dashboard page এ redirect
+
 window.location.href="dashboard.html"
 
 }else{
@@ -26,16 +24,13 @@ alert("Wrong credentials")
 
 
 
-// ==============================
-// TAB CHANGE FUNCTION
-// ==============================
 
 function changeTab(btn,type){
 
-// সব tab select
+
 const tabs = document.querySelectorAll(".tab")
 
-// আগের color remove
+
 tabs.forEach(tab=>{
 tab.classList.remove(
 "bg-blue-700",
@@ -45,7 +40,7 @@ tab.classList.remove(
 )
 })
 
-// active tab color
+
 if(type === "all"){
 btn.classList.add("bg-blue-700","text-white")
 }
@@ -58,16 +53,14 @@ if(type === "closed"){
 btn.classList.add("bg-purple-500","text-white")
 }
 
-// issue load
+
 loadIssues(type)
 
 }
 
 
 
-// ==============================
-// API URL
-// ==============================
+
 
 const API = "https://phi-lab-server.vercel.app/api/v1/lab/issues"
 
@@ -77,13 +70,11 @@ const loader = document.getElementById("loader")
 
 
 
-// ==============================
-// LOAD ISSUES
-// ==============================
+
 
 async function loadIssues(type){
 
-// loader show
+
 loader.classList.remove("hidden")
 
 try{
@@ -93,17 +84,16 @@ const data = await res.json()
 
 let issues = data.data
 
-// filter open
 if(type === "open"){
 issues = issues.filter(issue => issue.status.toLowerCase() === "open")
 }
 
-// filter closed
+
 if(type === "closed"){
 issues = issues.filter(issue => issue.status.toLowerCase() === "closed")
 }
 
-// display card
+
 displayIssues(issues)
 
 }catch(err){
@@ -112,16 +102,14 @@ console.log("API error:",err)
 
 }
 
-// loader hide
+
 loader.classList.add("hidden")
 
 }
 
 
 
-// ==============================
-// ISSUE COUNT UPDATE
-// ==============================
+
 
 function updateCounts(issues){
 
@@ -140,11 +128,6 @@ if(closedEl) closedEl.innerText = closed
 }
 
 
-
-// ==============================
-// DISPLAY ISSUES
-// ==============================
-
 function displayIssues(issues){
 
   if(!container) return
@@ -153,9 +136,7 @@ function displayIssues(issues){
 
   issues.forEach(issue=>{
 
-    // ============================
-    // STATUS ICON
-    // ============================
+ 
     let statusIcon = "./assets/Open-Status.png"
     if(issue.status.toLowerCase() === "closed"){
       statusIcon = "./assets/Closed- Status .png"
@@ -178,9 +159,6 @@ function displayIssues(issues){
     else{
       priorityColor = "bg-gray-200 text-gray-600"
     }
-
-
-    // ===== label fix =====
 
     let labelsHTML = ""
 
@@ -218,18 +196,7 @@ if(issue.labels && issue.labels.length > 0){
   })
 
 }
-    // let labelsHTML = ""
-    // if(issue.labels && issue.labels.length > 0){
-    //   issue.labels.forEach(label=>{
-    //     labelsHTML += `
-    //       <span class="px-3 py-1 text-xs rounded-full bg-orange-100 text-orange-500">
-    //         ${label.toUpperCase()}
-    //       </span>
-    //     `
-    //   })
-    // }
 
-    // ===== category =====
     const categoryHTML = issue.category ? `
       <span class="px-3 py-1 text-xs rounded-full bg-red-100 text-red-500">
         ${issue.category}
@@ -237,7 +204,7 @@ if(issue.labels && issue.labels.length > 0){
     ` : ""
 
 
-    // ===== card html =====
+
     const card = `
       <div class="bg-white rounded-xl shadow border-t-4 ${borderColor} p-5">
 
@@ -285,9 +252,7 @@ if(issue.labels && issue.labels.length > 0){
 
 
 
-// ==============================
-// MODAL OPEN
-// ==============================
+
 
 async function openModal(id){
 
@@ -312,9 +277,6 @@ document.getElementById("issueModal").showModal()
 
 
 
-// ==============================
-// SEARCH FUNCTION
-// ==============================
 
 async function searchIssue(){
 
@@ -331,9 +293,5 @@ displayIssues(data.data)
 }
 
 
-
-// ==============================
-// INITIAL LOAD
-// ==============================
 
 loadIssues("all")
