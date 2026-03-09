@@ -181,16 +181,53 @@ function displayIssues(issues){
 
 
     // ===== label fix =====
+
     let labelsHTML = ""
-    if(issue.labels && issue.labels.length > 0){
-      issue.labels.forEach(label=>{
-        labelsHTML += `
-          <span class="px-3 py-1 text-xs rounded-full bg-orange-100 text-orange-500">
-            ${label}
-          </span>
-        `
-      })
+
+if(issue.labels && issue.labels.length > 0){
+
+  issue.labels.forEach(label=>{
+
+    let labelIcon = ""
+
+    if(label.toLowerCase() === "bug"){
+      labelIcon = "./assets/bug.png"
     }
+
+    else if(label.toLowerCase() === "help wanted"){
+      labelIcon = "./assets/help.png"
+    }
+
+    else if(label.toLowerCase() === "enhancement"){
+      labelIcon = "./assets/enhancement.png"
+    }
+    else if(label.toLowerCase() === "good first issue"){
+      labelIcon = "./assets/good.png"
+    }
+    else if(label.toLowerCase() === "documentation"){
+      labelIcon = "./assets/documentation.png"
+    }
+
+    labelsHTML += `
+      <span class="px-3 py-1 text-xs rounded-full bg-orange-100 text-orange-500 flex items-center gap-1">
+        <img src="${labelIcon}" class="w-4 h-4">
+        ${label.toUpperCase()}
+      </span>
+    `
+
+  })
+
+}
+    // let labelsHTML = ""
+    // if(issue.labels && issue.labels.length > 0){
+    //   issue.labels.forEach(label=>{
+    //     labelsHTML += `
+    //       <span class="px-3 py-1 text-xs rounded-full bg-orange-100 text-orange-500">
+    //         ${label.toUpperCase()}
+    //       </span>
+    //     `
+    //   })
+    // }
 
     // ===== category =====
     const categoryHTML = issue.category ? `
