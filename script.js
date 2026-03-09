@@ -23,8 +23,6 @@ alert("Wrong credentials")
 }
 
 
-
-
 function changeTab(btn,type){
 
 
@@ -64,11 +62,9 @@ loadIssues(type)
 
 const API = "https://phi-lab-server.vercel.app/api/v1/lab/issues"
 
-// HTML element select
+
 const container = document.getElementById("issueContainer")
 const loader = document.getElementById("loader")
-
-
 
 
 
@@ -259,21 +255,26 @@ const res = await fetch(
 
 const data = await res.json()
 
-
+console.log(data)
 const issue = data.data
 document.getElementById("modalTitle").innerText = issue.title || "No title"
 
 document.getElementById("modalDesc").innerText = issue.description || "No description"
 
 document.getElementById("modalAuthor").innerText = issue.author || issue.assignee || "Unknown"
-
-document.getElementById("modalCategory").innerText = issue.category || "General"
+document.getElementById("modalStatus").innerText = issue.status || "Unknown"
+document.getElementById("modalAssignee").innerText = issue.assignee || issue.author || "Unknown"
+let labels = '';
+issue.labels.forEach(label=>{
+  labels += `<button class="bg-[#FEECEC] px-3 rounded-2xl flex justify-center items-center"> <img src="./assets/bug.png" alt="">${label}</button>`
+})
+document.getElementById("modalCategory").innerHTML = labels
 
 document.getElementById("modalPriority").innerText = issue.priority || "Normal"
 
 const date = new Date(issue.createdAt)
 
-document.getElementById("modalDate").innerText =
+// document.getElementById("modalDate").innerText =
 date.toLocaleDateString()
 
 

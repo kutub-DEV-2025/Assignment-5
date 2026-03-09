@@ -43,7 +43,7 @@
 <section>
 
     <div class="p-10">
-        <div class="tabs tabs-boxed mb-6 shadow bg-white rounded-md space-x-5 py-4">
+        <div class="tabs tabs-boxed mb-6 shadow bg-white rounded-md space-x-5 py-4 px-3">
             <button onclick="changeTab(this,'all')" class="btn tab tab-active">All </button>
             <button onclick="changeTab(this,'open')" class="btn tab">Open</button>
 
@@ -83,10 +83,36 @@
 </section>
 
 
-
 <section>
     <dialog id="issueModal" class="modal">
         <div class="modal-box max-w-lg">
+            <h3 id="modalTitle" class="text-xl font-bold"></h3>
+        <div class="flex items-center gap-4 space-y-3">
+            <button id="modalStatus" class=" btn rounded-xl bg-[#00a96e] text-white text-sm">Opened</button>
+            <p class="text-[#64748B]">Opened by <span  id="modalAuthor">---</span></p>
+            <p id="modalDate" class="text-[#64748B]"></p>
+        </div>
+        <div id="modalCategory" class="flex gap-5">
+        </div>
+        <p id="modalDesc" class="text-[#64748B]"></p>
+        <div class="grid grid-cols-2 gap-5 flex ">
+            <div>
+                <h3 class="text-[#64748B]">Assignee:</h3>
+                <h2 id="modalAssignee" class="text-xl font-bold"></h2>
+            </div>
+            <div>
+                <h3 class="text-[#64748B]">Priority:</h3>
+                <button id="modalPriority" class="btn bg-[#EF4444] rounded-xl text-white"></button>
+            </div>
+
+        </div>
+            <div class="modal-action flex items-end">
+                <form method="dialog">
+                    <button class="btn btn-primary ">Close</button>
+                </form>
+            </div>
+        </div>
+        <!-- <div class="modal-box max-w-lg">
             <h3 id="modalTitle" class="text-xl mb-2 font-bold"></h3>
             <p id="modalDesc"></p>
             <p id="modalAuthor"></p>
@@ -98,7 +124,7 @@
                     <button class="btn btn-primary">Close</button>
                 </form>
             </div>
-        </div>
+        </div> -->
     </dialog>
 </section>
 
